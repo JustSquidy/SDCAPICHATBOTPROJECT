@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Schedule meetings wherever you are, whenever you need</h1>
+<h2>Example: “Suggest a time to meet with someone in Japan and Canada.”</h2>
+
+<form method="GET" action="/get_user">
+    <label>Please enter when you would like to set up a meeting! <br></label>
+
+    <input type="text" id="message" name="user_message" size="100"><br><br>
+    <button type="submit">Go!</button>
+</form>
+
+{% endblock %}
