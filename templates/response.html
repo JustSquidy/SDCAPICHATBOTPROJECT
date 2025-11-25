@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting Availability</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px 35px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #222;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #fafafa;
+        }
+
+        .country-block {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .country-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .holiday {
+            margin-left: 10px;
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .none {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 16px;
+            background: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .back-btn:hover {
+            background: #003f7f;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>📅 Meeting Availability Results</h1>
+
+    {% if extracted_date %}
+        <p class="subtitle">You asked about: <strong>{{ original }}</strong></p>
+        <p class="subtitle">Date analyzed: <strong>{{ extracted_date }}</strong></p>
+    {% endif %}
+
+    <div class="result-box">
+        {% if result %}
+            {% for country, holidays in result.items() %}
+                <div class="country-block">
+                    <div class="country-name">{{ country }}</div>
+
+                    {% if holidays and holidays|length > 0 %}
+                        {% for h in holidays %}
+                            <div class="holiday">
+                                🚫 Holiday: {{ h.name if h.name else "Holiday" }}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="none">
+                            ✔ No holidays detected — great day to meet!
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No data was returned.</p>
+        {% endif %}
+    </div>
+
+    <a href="/" class="back-btn">← Go Back</a>
+</div>
+</body>
+</html>

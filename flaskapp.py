@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request, render_template
 # import gemini
-import holidayapi
+# import holidayapi
 
 app = Flask(__name__)
 
