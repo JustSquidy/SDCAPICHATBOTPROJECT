@@ -5,7 +5,7 @@ import json
 
 def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
     try:
-        api_key = "AIzaSyAgwSkgLBjKDoozB8xxY7OsOGw4ixMd4fk"
+        api_key = ""
         # Initialize the GenAI client
         client = genai.Client(api_key=api_key)
         # Create the prompt with system instructions and user input
