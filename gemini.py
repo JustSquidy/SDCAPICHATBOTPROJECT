@@ -24,7 +24,7 @@ def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
 
                             Interpret the user’s input and extract:
 
-                            Countries involved
+                            Countries involved (using 2-letter country codes, e.g., US for United States, SG for Singapore, FR for France, etc. If a country name is given, convert it to the corresponding 2-letter code.)
 
                             The date range
 
@@ -65,8 +65,8 @@ def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
         return f"An error occurred: {e}"
     
 
-print(
-    personalized_meeting_planner(
-    "Help me plan a meeting between Singapore and France anytime in April. Avoid holidays and try to keep it early in the month.",
-    '{"Singapore": [{"date": "2025-04-07", "name": "Good Friday"}, {"date": "2025-04-10", "name": "Easter Monday"}], "France": [{"date": "2025-04-18", "name": "Easter Sunday"}, {"date": "2025-04-21", "name": "Easter Monday"}]}'
-))
+# print(
+#     personalized_meeting_planner(
+#     "Help me plan a meeting between Singapore and France anytime in April. Avoid holidays and try to keep it early in the month.",
+#     '{"Singapore": [{"date": "2025-04-07", "name": "Good Friday"}, {"date": "2025-04-10", "name": "Easter Monday"}], "France": [{"date": "2025-04-18", "name": "Easter Sunday"}, {"date": "2025-04-21", "name": "Easter Monday"}]}'
+# ))
