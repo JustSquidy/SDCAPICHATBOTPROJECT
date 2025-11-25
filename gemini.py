@@ -24,7 +24,7 @@ def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
 
                             Interpret the user’s input and extract:
 
-                            Countries involved
+                            Countries involved (using 2-letter country codes, e.g., US for United States, SG for Singapore, FR for France, etc. If a country name is given, convert it to the corresponding 2-letter code.)
 
                             The date range
 

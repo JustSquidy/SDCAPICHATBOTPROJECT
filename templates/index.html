@@ -4,11 +4,11 @@
 <h1>Schedule meetings wherever you are, whenever you need</h1>
 <h2>Example: “Suggest a time to meet with someone in Japan and Canada.”</h2>
 
-<form method="GET" action="/get_user">
+<form method="POST" action="/plan_meeting">
     <label>Please enter when you would like to set up a meeting! <br></label>
-
-    <input type="text" id="message" name="user_message" style="width:600px; height:60px;"><br><br>
+    <textarea id="message" name="prompt" style="width:600px; height:100px; font-size:16px; padding:10px;"></textarea>
     <button type="submit">Go!</button>
+</form>
 </form>
 
 {% endblock %}
