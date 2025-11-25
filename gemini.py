@@ -1,11 +1,12 @@
 from google import genai
 from google.genai import types
-import json
+import os
+
 
 
 def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
     try:
-        api_key = "AIzaSyCXKz1vS4qkHPmaPFA5JtykurX-dboJrVI"
+        api_key = os.getenv("GEMINI_API_KEY") # create environment variable for your API key
         # Initialize the GenAI client
         client = genai.Client(api_key=api_key)
         # Create the prompt with system instructions and user input
