@@ -3,7 +3,7 @@ import pprint
 import os
 
 # https://holidays.abstractapi.com/v1/?api_key=&country=US&year=2025&month=12&day=22 example structure with API key missing
-api_key = "" #apit key TODO move to env variable
+api_key = os.environ.get("API_KEY") # api key in environment variable. variable needs to be set on every member's computer
 
 # User inputs
 country = input("Enter country code (e.g., US): ")
