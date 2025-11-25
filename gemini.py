@@ -32,12 +32,7 @@ def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
                             Using the extracted information, output a structured request object so the system knows what API calls to make.
                             Use this format:
 
-                            {
-                            "countries": ["..."],
-                            "date_range": {
-                                "start": "YYYY-MM-DD",
-                                "end": "YYYY-MM-DD"
-                            },
+                    
                             "constraints": "Optional natural-language scheduling preferences"
                             }
 
@@ -55,39 +50,11 @@ def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
 
                             Output Requirements When API Data Is Returned:
 
-                            When you receive the API results, respond in this format, make sure to return the 2-letter country codes for each country:
+                            When you receive the API results, make sure to return the 2-letter country codes for each country:
 
-                            {
-                            "countries": ["CA", "DE"],
-                            "recommended_dates": ["YYYY-MM-DD", "..."],
-                            "reasoning": "Short personalized explanation of why these dates are optimal based on the user's constraints and holiday data."
-                            }
+                            
 
-                            Behavior Example
-
-                            User input:
-                            “Help me plan a meeting between Canada and Germany anytime in April. Avoid holidays and try to keep it early in the month.”
-
-                            Stage 1 Output:
-
-                            {
-                            "countries": ["Canada", "Germany"],
-                            "date_range": {
-                                "start": "2025-04-01",
-                                "end": "2025-04-30"
-                            },
-                            "constraints": "Prefer early April; avoid holidays."
-                            }
-
-
-                            Stage 2 :
-
-                            {
-                            "countries": ["CA", "DE"],
-                            "recommended_dates": ["2025-04-03", "2025-04-04"],
-                            "reasoning": "These dates fall early in April and do not overlap with any holidays in Canada or Germany."
-                            }
-
+                
         """),
             contents=f"User input: {user_input}, API holiday data: {api_holiday_data}",
         )
