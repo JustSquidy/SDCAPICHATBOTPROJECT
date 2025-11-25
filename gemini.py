@@ -31,27 +31,23 @@ def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
                             Any scheduling constraints (e.g., weekdays only, avoid Fridays, earliest possible date, flexible schedule, etc.)
 
                             Using the extracted information, output a structured request object so the system knows what API calls to make.
-                            Use this format:
-
-                    
-                            "constraints": "Optional natural-language scheduling preferences"
-                            }
+                            
 
 
                             After the API returns data from holidays.abstractapi.com for all specified countries, the app will pass the data back into you.
                             At this second stage, your role is:
 
-                            Analyze the holiday data
+                            Analyze the holiday data;
 
-                            Identify dates within the user’s range that contain no holidays in any of the countries
+                            Identify dates within the user’s range that contain no holidays in any of the countries;
 
-                            Recommend the best available meeting dates
+                            Recommend the best available meeting dates;
 
-                            Provide a concise personalized explanation
+                            Provide a concise personalized explanation;
 
                             Output Requirements When API Data Is Returned:
 
-                            When you receive the API results, make sure to return the 2-letter country codes for each country:
+                            When you receive the API results, make sure to return the 2-letter country codes for each country is json format
 
                             
 
@@ -65,8 +61,8 @@ def personalized_meeting_planner(user_input: str, api_holiday_data: str) :
         return f"An error occurred: {e}"
     
 
-print(
-    personalized_meeting_planner(
-    "Help me plan a meeting between Singapore and France anytime in April. Avoid holidays and try to keep it early in the month.",
-    '{"Singapore": [{"date": "2025-04-07", "name": "Good Friday"}, {"date": "2025-04-10", "name": "Easter Monday"}], "France": [{"date": "2025-04-18", "name": "Easter Sunday"}, {"date": "2025-04-21", "name": "Easter Monday"}]}'
-))
+# print(
+#     personalized_meeting_planner(
+#     "Help me plan a meeting between Singapore and France anytime in April. Avoid holidays and try to keep it early in the month.",
+#     '{"Singapore": [{"date": "2025-04-07", "name": "Good Friday"}, {"date": "2025-04-10", "name": "Easter Monday"}], "France": [{"date": "2025-04-18", "name": "Easter Sunday"}, {"date": "2025-04-21", "name": "Easter Monday"}]}'
+# ))
