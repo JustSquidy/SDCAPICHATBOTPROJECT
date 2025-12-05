@@ -5,20 +5,8 @@
 
 <p> Original Request: <strong>{{ original }}</strong></p>
 
-<p><strong>You want to meet on {{ extracted_date }} with {{ result.keys()|list|join(', ') }}.</strong></p>
+<p><strong>You want to meet on {{ results }}</strong></p>
 
-<h2>Holiday Check</h2>
-
-{% for country, holidays in result.items() %}
-  <p><strong>{{ country }}</strong></p>
-
-  {% if holidays and holidays|length > 0 %}
-      <p style="color: red;"> There is a holday or non-working day for this day.</p>
-  {% else %}
-      <p style="color: green;">This day has no conflicts.</p>
-  {% endif %}
-  <hr>
-{% endfor %}
 
 <p><a href="/" style="font-weight:bold;"> Go Back</a></p>
 

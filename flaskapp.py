@@ -20,13 +20,24 @@ def get_best_times():
     
     try: 
         # Asks Gemini to extract countries and date range from user input
-        countries, date = gemini.personalized_meeting_planner(user_input)
+        countries_dates = gemini.get_countries_and_dates(user_input)
+        print('First Gemini call returned these countries and dates', countries_dates)
+
         # Calls Holiday API module to get data for the extracted countries and date range
-        results = holidayapi(countries, date)
+        all_holidays = {}  # Make a dictionary to store the country and the associated holiday 
+        for country in countries_dates.countries:
+            holidays = holidayapi.get_holiday_for_country_and_date(country, countries_dates.month)  
+            all_holidays[country] = holidays
+
+        print('All holidays', all_holidays)
+
+        # Second Gemini call 
+        results = gemini.propose_meeting_schedule(countries_dates, all_holidays)
+
+        print('Second Gemini call results', results)
 
         return render_template("response.html",
-                               result=results,
-                               extracted_date = date,
+                               results=results,
                                original=user_input)
     
     except Exception as e: 
